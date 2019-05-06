@@ -1,0 +1,34 @@
+
+<div class="mb-2">
+  <h1>Unique IDs in a modal window</h1>
+  
+  <p class="lead">Selecting an <strong>unique id</strong> with other properties in a modal window with Angular</p>
+  
+  <button class="btn btn-primary" (click)="addProdsModal.show()" [disabled]="!canAddProducts()">Open Modal</button>
+</div>
+
+<div class="modal fade" bsModal #addProdsModal="bs-modal" [config]="{backdrop: 'static'}" (onHidden)="addProductsModal = false" (onShow)="addProductsModal = true" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" *ngIf="addProductsModal">
+    <product-add [modalInstance]="addProdsModal"></product-add>
+  </div>
+</div>
+
+<h3>Product list</h3>
+<div class="product-list-wrapper">
+  <div class="product-list" #prodslist>
+
+    <table class="table table-striped">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Product</th>
+        <th scope="col">Status</th>
+      </tr>
+      <tr *ngFor="let product of getProductList(); let i = index;">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.active ? 'active' : 'unavailable' }}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,1 @@
+export { BootstrapUiModule } from './lib/bootstrap-ui.module';

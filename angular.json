@@ -1,0 +1,397 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "ngwebsite": {
+      "root": "apps/ngwebsite/",
+      "sourceRoot": "apps/ngwebsite/src",
+      "projectType": "application",
+      "prefix": "nxprojects",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ngwebsite",
+            "index": "apps/ngwebsite/src/index.html",
+            "main": "apps/ngwebsite/src/main.ts",
+            "polyfills": "apps/ngwebsite/src/polyfills.ts",
+            "tsConfig": "apps/ngwebsite/tsconfig.app.json",
+            "assets": [
+              "apps/ngwebsite/src/favicon.ico",
+              "apps/ngwebsite/src/assets"
+            ],
+            "styles": ["apps/ngwebsite/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngwebsite/src/environments/environment.ts",
+                  "with": "apps/ngwebsite/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngwebsite:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngwebsite:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngwebsite:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngwebsite/tsconfig.app.json",
+              "apps/ngwebsite/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/ngwebsite/jest.config.js",
+            "tsConfig": "apps/ngwebsite/tsconfig.spec.json",
+            "setupFile": "apps/ngwebsite/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "ngwebsite-e2e": {
+      "root": "apps/ngwebsite-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/ngwebsite-e2e/cypress.json",
+            "tsConfig": "apps/ngwebsite-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ngwebsite:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngwebsite:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/ngwebsite-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "packagist-api": {
+      "root": "apps/packagist-api/",
+      "sourceRoot": "apps/packagist-api/src",
+      "projectType": "application",
+      "prefix": "nxprojects",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:web-build",
+          "options": {
+            "outputPath": "dist/apps/packagist-api",
+            "index": "apps/packagist-api/src/index.html",
+            "main": "apps/packagist-api/src/main.tsx",
+            "polyfills": "apps/packagist-api/src/polyfills.ts",
+            "tsConfig": "apps/packagist-api/tsconfig.app.json",
+            "assets": [
+              "apps/packagist-api/src/favicon.ico",
+              "apps/packagist-api/src/assets"
+            ],
+            "styles": ["apps/packagist-api/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/packagist-api/src/environments/environment.ts",
+                  "with": "apps/packagist-api/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:web-dev-server",
+          "options": {
+            "buildTarget": "packagist-api:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "packagist-api:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/packagist-api/tsconfig.app.json",
+              "apps/packagist-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/packagist-api/jest.config.js",
+            "tsConfig": "apps/packagist-api/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "packagist-api-e2e": {
+      "root": "apps/packagist-api-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/packagist-api-e2e/cypress.json",
+            "tsConfig": "apps/packagist-api-e2e/tsconfig.e2e.json",
+            "devServerTarget": "packagist-api:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "packagist-api:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/packagist-api-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "bootstrap-ui": {
+      "root": "libs/bootstrap-ui",
+      "sourceRoot": "libs/bootstrap-ui/src",
+      "projectType": "library",
+      "prefix": "nxprojects",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/bootstrap-ui/tsconfig.lib.json",
+              "libs/bootstrap-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/bootstrap-ui/jest.config.js",
+            "tsConfig": "libs/bootstrap-ui/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "registration-login-sample": {
+      "root": "apps/registration-login-sample/",
+      "sourceRoot": "apps/registration-login-sample/src",
+      "projectType": "application",
+      "prefix": "nxprojects",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/registration-login-sample",
+            "index": "apps/registration-login-sample/src/index.html",
+            "main": "apps/registration-login-sample/src/main.ts",
+            "polyfills": "apps/registration-login-sample/src/polyfills.ts",
+            "tsConfig": "apps/registration-login-sample/tsconfig.app.json",
+            "assets": [
+              "apps/registration-login-sample/src/favicon.ico",
+              "apps/registration-login-sample/src/assets"
+            ],
+            "styles": ["apps/registration-login-sample/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/registration-login-sample/src/environments/environment.ts",
+                  "with": "apps/registration-login-sample/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "registration-login-sample:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "registration-login-sample:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "registration-login-sample:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/registration-login-sample/tsconfig.app.json",
+              "apps/registration-login-sample/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/registration-login-sample/jest.config.js",
+            "tsConfig": "apps/registration-login-sample/tsconfig.spec.json",
+            "setupFile": "apps/registration-login-sample/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "registration-login-sample-e2e": {
+      "root": "apps/registration-login-sample-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/registration-login-sample-e2e/cypress.json",
+            "tsConfig": "apps/registration-login-sample-e2e/tsconfig.e2e.json",
+            "devServerTarget": "registration-login-sample:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "registration-login-sample:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/registration-login-sample-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "ngwebsite"
+}

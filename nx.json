@@ -1,0 +1,33 @@
+{
+  "npmScope": "nxprojects",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ngwebsite": {
+      "tags": []
+    },
+    "ngwebsite-e2e": {
+      "tags": []
+    },
+    "packagist-api": {
+      "tags": []
+    },
+    "packagist-api-e2e": {
+      "tags": []
+    },
+    "bootstrap-ui": {
+      "tags": []
+    },
+    "registration-login-sample": {
+      "tags": []
+    },
+    "registration-login-sample-e2e": {
+      "tags": []
+    }
+  }
+}

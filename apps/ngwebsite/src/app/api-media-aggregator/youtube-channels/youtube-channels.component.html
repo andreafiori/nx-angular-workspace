@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-8">
+
+    <h3>YouTube Channel Videos</h3>
+
+    <!-- Videos thumbnails -->
+    <div *ngIf="apiResult">
+      <div class="row">
+        <div class="col-4 mb-4" *ngFor="let video of apiResult.items">
+          <div>
+            <a [routerLink]="" (click)="openModal(template, { id: video.snippet.thumbnails['default'].url, title: video.snippet.title })">
+              <img appLazyLoad [src]="video.snippet.thumbnails['default'].url" [alt]="video.snippet.title">
+            </a>
+          </div>
+          <div>
+            <a [routerLink]="" (click)="openModal(template, { id: video.snippet.thumbnails['default'].url, title: video.snippet.title })">{{ video.snippet.title }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="apiError" class="alert alert-danger">
+      <h3 class="alert-heading">Error occurred</h3>
+      <div>{{ apiError }}</div>
+    </div>
+
+  </div>
+  
+  <!-- Sidebar-->
+  <div class="col-4">
+
+    <aside>
+      <div *ngFor="let channel of channels">
+        <h3>{{ channel.label }}</h3>
+        <ul>
+          <li *ngFor="let channelLink of channel.channels">
+            <div *ngIf="href !== '/api-media-aggregator/youtube/channel/'+channelLink.id; then chnl_link else chnl_nolink"></div>
+
+            <ng-template  #chnl_link><a [routerLink]="['/api-media-aggregator/youtube/channel/'+channelLink.id]" [title]="channelLink.title">{{ channelLink.title }}</a></ng-template>
+            <ng-template #chnl_nolink>
+              <span *ngIf="href === '/api-media-aggregator/youtube/channel/'+channelLink.id">
+              <strong>{{ channelLink.title }}</strong>
+            </span>
+            </ng-template>
+            
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+
+<!-- Responsive Video Player -->
+<ng-template #template onHide="onHideModal()">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" [innerHTML]="videoProps.title"></h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="onHideModal(modalRef)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <iframe width="100%" height="415" [src]="videoProps.embed_url" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+</ng-template>

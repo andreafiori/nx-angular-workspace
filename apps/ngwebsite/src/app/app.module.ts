@@ -1,0 +1,47 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+
+import { SharedModule } from './shared/shared.module';
+import { ComponentInteractionsModule } from './component-interactions/component-interactions.module';
+import { UniqueIdModalModule } from './unique-id-modal/unique-id-modal.module';
+import { SeoToolsModule } from './seo-tools/seo-tools.module';
+
+import { HomeComponent } from './pages/home/home.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FormSamplesModule } from './form-samples/form-samples.module';
+import { CodingSolutionsModule } from './coding-solutions/coding-solutions.module';
+import { ApiMediaAggregatorModule } from './api-media-aggregator/api-media-aggregator.module';
+import { RxJsSamplesModule } from './rx-js-samples/rx-js-samples.module';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
+  { path: 'component-interactions', loadChildren: () => ComponentInteractionsModule },
+  { path: 'form-validation', loadChildren: () => FormSamplesModule },
+  { path: 'unique-id-modal', loadChildren: () => UniqueIdModalModule },
+  { path: 'seo-tools', loadChildren: () => SeoToolsModule },
+  { path: '**', component: PageNotFoundComponent, pathMatch: 'full' },
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+  ],
+  imports: [
+    SharedModule,
+    SeoToolsModule,
+    ComponentInteractionsModule,
+    UniqueIdModalModule,
+    FormSamplesModule,
+    CodingSolutionsModule,
+    ApiMediaAggregatorModule,
+    RouterModule.forRoot(routes, { useHash: true }),
+    RxJsSamplesModule,
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

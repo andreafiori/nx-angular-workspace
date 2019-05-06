@@ -1,0 +1,23 @@
+<li class="list-group-item">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+          {{ todo.task }}
+      </div>
+      <div class="col-sm">
+        <span class="badge badge-success" *ngIf="todo.isCompleted && !todo.isArchive">Completed</span>
+        <span class="badge badge-info" *ngIf="todo.isArchive">Archived</span>
+        <span class="badge badge-info" *ngIf="!todo.isCompleted">Not Completed</span>
+      </div>
+      <div class="col-sm">
+        <button type="button" class="btn btn-success btn-sm" *ngIf="!todo.isCompleted" (click)="markCompleted()">Mark as Completed</button>
+        <button type="button" class="btn btn-warning btn-sm" *ngIf="todo.isCompleted && !todo.isArchive" (click)="archive()">Archive</button>
+      </div>
+      <!--
+      <div class="col-sm">
+        <button type="button" class="btn btn-danger btn-sm" (click)="archive()">Delete</button>
+      </div>
+      -->
+    </div>
+  </div>
+</li>

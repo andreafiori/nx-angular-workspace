@@ -1,0 +1,19 @@
+.arrayElementsContainer {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 2% 0 0 0;
+  text-align: center;
+}
+
+.arrayElementActive {
+  background-color: gold;
+  font-weight: bold;
+}
+
+.arrayElement {
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  padding: 2% 0 2% 0;
+}
+
+label { font-weight: bold }

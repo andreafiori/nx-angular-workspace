@@ -1,0 +1,44 @@
+<h3>Template Driven Form</h3>
+
+<form #form="ngForm" (ngSubmit)="submitForm(form.value)">
+	<div class="form-group">
+		<label>First Name:</label>
+		<input type="text" class="form-control" id="tdriven-form-name" placeholder="John" name="firstName" maxlength="100" ngModel required>
+	</div>
+	<div class="form-group">
+		<label>Last Name</label>
+		<input type="text" class="form-control" id="tdriven-form-lastname" placeholder="Doe" name="lastName" maxlength="100" ngModel required>
+	</div>
+	<div class="form-group">
+		<label>Gender</label>
+	</div>
+	<div class="radio">
+	  <label>
+		<input type="radio" name="gender" value="Male" ngModel>
+		Male
+	  </label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="gender" value="Female" ngModel>
+			Female
+		</label>
+	</div>
+	<div class="form-group">
+		<div>
+			<label>Activities</label>
+		</div>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="hiking" name="hiking" ngModel> Hiking
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="swimming" name="swimming" ngModel> Swimming
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" value="running" name="running" ngModel> Running
+		</label>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-default">Submit</button>
+	</div>
+</form>

@@ -1,0 +1,15 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+
+#footer {
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  border-top: 3px solid #aaa;
+}
+
+.footer-block {
+  margin: 20px 0;
+}

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+  <div class="container">
+  <a class="navbar-brand" routerLink="" title="">NG Website</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }" title=""><i class="fa fa-home"></i> Home</a>
+      </li>
+      <!-- Angular -->
+      <li dropdown class="nav-item dropdown">
+        <a style="cursor: pointer" dropdownToggle class="nav-link dropdown-toggle" role="button">Angular<b
+            class="caret"></b></a>
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/pages/ng/features" title="Angular features">Features</a>
+          <a class="dropdown-item" routerLink="/pages/ng/versions" title="Angular versions history">Versions</a>
+          <!-- Working samples -->
+          <div class="dropdown-header">Working Samples</div>
+          <a class="dropdown-item" routerLink="/component-interactions">Component Interactions</a>
+          <a class="dropdown-item" routerLink="/form-samples/validation">Form Validation</a>
+          <a class="dropdown-item" routerLink="/unique-id-modal">Unique IDs in modal window</a>
+        </div>
+      </li>
+      <!-- RxJs Examples -->
+      <li dropdown class="nav-item dropdown">
+        <a style="cursor: pointer" dropdownToggle class="nav-link dropdown-toggle" role="button">RxJs Samples<b class="caret"></b></a>
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/rxjs-samples/students-one">Students Programs (sample 1)</a>
+          <a class="dropdown-item" routerLink="/rxjs-samples/students-two">Students Programs (sample 2)</a>
+          <a class="dropdown-item" routerLink="/rxjs-samples/todo-one">Todo App</a>
+        </div>
+      </li>
+      <!-- API and Media -->
+      <li dropdown class="nav-item dropdown">
+        <a style="cursor: pointer" dropdownToggle class="nav-link dropdown-toggle" role="button">APIs and Media<b
+            class="caret"></b></a>
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/api-media-aggregator/youtube">Youtube</a>
+          <a class="dropdown-item" routerLink="/api-media-aggregator/flickr">Flickr</a>
+          <a class="dropdown-item" routerLink="/api-media-aggregator/news">RSS News Reader</a>
+          <a class="dropdown-item" routerLink="/api-media-aggregator/list">APIs Aggregator</a>
+        </div>
+      </li>
+      <!-- SEO tools -->
+      <li dropdown class="nav-item dropdown">
+        <a style="cursor: pointer" dropdownToggle class="nav-link dropdown-toggle" role="button">SEO tools<b class="caret"></b></a>
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/seo-tools/title-validator" title="">Title validators</a>
+          <a class="dropdown-item" routerLink="/seo-tools/description-validator" title="">Description validators</a>
+          <a class="dropdown-item" routerLink="/seo-tools/keywords-extractor" title="">Keywords extractor</a>
+          <a class="dropdown-item" routerLink="/seo-tools/checklist" title="">Checklist</a>
+        </div>
+      </li>
+      <!-- Coding Solutions -->
+      <li dropdown class="nav-item dropdown">
+        <a style="cursor: pointer" dropdownToggle class="nav-link dropdown-toggle" role="button">Coding Solutions<b
+            class="caret"></b></a>
+        <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/coding-solutions/two-sums">Two Sums</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
