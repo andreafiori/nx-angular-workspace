@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
-
+// Modules
+import { FormSamplesModule } from './form-samples/form-samples.module';
+import { ApiMediaAggregatorModule } from './api-media-aggregator/api-media-aggregator.module';
+import { RxJsSamplesModule } from './rx-js-samples/rx-js-samples.module';
+import { SeoToolsModule } from './seo-tools/seo-tools.module';
 import { SharedModule } from './shared/shared.module';
 import { ComponentInteractionsModule } from './component-interactions/component-interactions.module';
 import { UniqueIdModalModule } from './unique-id-modal/unique-id-modal.module';
-import { SeoToolsModule } from './seo-tools/seo-tools.module';
 
+// Components
+import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { FormSamplesModule } from './form-samples/form-samples.module';
-import { CodingSolutionsModule } from './coding-solutions/coding-solutions.module';
-import { ApiMediaAggregatorModule } from './api-media-aggregator/api-media-aggregator.module';
-import { RxJsSamplesModule } from './rx-js-samples/rx-js-samples.module';
+import { CodingChallengesModule } from './coding-challenges/coding-challenges.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,7 +38,7 @@ const routes: Routes = [
     ComponentInteractionsModule,
     UniqueIdModalModule,
     FormSamplesModule,
-    CodingSolutionsModule,
+    CodingChallengesModule,
     ApiMediaAggregatorModule,
     RouterModule.forRoot(routes, { useHash: true }),
     RxJsSamplesModule,

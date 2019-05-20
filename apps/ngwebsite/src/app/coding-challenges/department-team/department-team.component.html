@@ -1,0 +1,117 @@
+
+<h3>My Department</h3>
+
+<p>Coding Challenge can be found <a href="https://angular-challenge.surge.sh/" target="_blank">here</a> and <a routerLink="/coding-challenges/department-team" (click)="lgModal.show()">here is the problem description</a></p>
+
+<button class="btn btn-primary mr-2" (click)="addManager()">+Manager</button>
+<button class="btn btn-secondary mr-2" (click)="addDeveloper()">+Developer</button>
+<button class="btn btn-secondary" (click)="addQAtester()">+QA Tester</button>
+
+<h2 class="pull-right">Total Cost ${{ cost }}</h2>
+
+<department-list [employees]="employeesToDisplay"></department-list>
+
+<!-- Modal -->
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">CenturyLink Cloud Coding Challenge</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div style="max-height: 60vh; overflow-y: scroll">
+          <h3>Problem Statement</h3>
+
+          <p>CenturyLink Cloud needs a small application that can calculate a department and/or manager&rsquo;s monthly expense allocation based on the number and types of employees reporting to the manager or contained within the department.</p>
+
+          <h3>Specific Requirements</h3>
+
+          <ul>
+            <li>
+            <p>Developers warrant an allocation of $1000 each.</p>
+            </li>
+            <li>
+            <p>QA Testers warrant an allocation of $500 each.</p>
+            </li>
+            <li>
+            <p>Managers warrant an allocation of $300 each.</p>
+            </li>
+            <li>
+            <p>Managers can have QA Testers, Developers and other managers report to them.</p>
+            </li>
+            <li>
+            <p>Departments consist of any kinds of employees.</p>
+            </li>
+            <li>
+            <p>Users of this application should be able to:</p>
+
+            <ul>
+              <li>
+              <p>Determine the monthly expense allocation warranted a manager who has various employee types reporting to him/her at least two levels deep (Manager -&gt; Manager -&gt; Developer). The level of depth of the hierarchy should be flexible ideally.</p>
+              </li>
+              <li>
+              <p>Determine the monthly expense allocation warranted a department with various employee types under it at multiple levels deep just as the Manager can.</p>
+              </li>
+            </ul>
+            </li>
+          </ul>
+
+          <h3>Example Scenario</h3>
+
+          <ul>
+            <li>
+            <p>For the given hierarchy:</p>
+
+            <ul>
+              <li>
+              <p>Manager A</p>
+
+              <ul>
+                <li>
+                <p>Manager B</p>
+
+                <ul>
+                  <li>
+                  <p>Developer</p>
+                  </li>
+                  <li>
+                  <p>QA Tester</p>
+                  </li>
+                </ul>
+                </li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+            <li>
+            <p>Manager A&rsquo;s allocation should be: $2100</p>
+            </li>
+          </ul>
+
+          <h3>Project Details &amp; Constraints</h3>
+
+          <ul>
+            <li>
+            <p>No user interface is necessary to prove your project solution works. You can prove it works with Unit tests following whatever best-practices you deem appropriate.</p>
+            </li>
+            <li>
+            <p>The project should be zipped and emailed upon completion.</p>
+            </li>
+            <li>
+            <p>You may use any design patterns and frameworks you deem necessary to accomplish this task.</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Modal Footer Spacer -->
+        <p>&nbsp;</p>
+
+      </div>
+    </div>
+  </div>
+</div>
