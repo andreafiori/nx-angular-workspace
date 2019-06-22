@@ -1,0 +1,14 @@
+<h3>Minutes: {{ everyMinute$ | async }}, Seconds {{ everySecond$ | async }}</h3>
+
+<p>This timer uses an Array of Subcriptions where 2 Observables are pushed to display minutes and seconds.</p>
+
+<h3>Date in a Subject</h3>
+
+<p>See how you can add different subject\s in the same way and unsubscribe both Observables and Subjects only with a single line of code!</p>
+
+<p>{{ date$ | async }}</p>
+
+<h3><i>Note about Subscriptions in a Service:</i></h3>
+
+<p>If you use Subscriptions in a service you cannot unsubscribe them.<br>
+  But be careful about what you do because not all values and operations will be reset when the component is destroyed!</p>

@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       { path: 'versions', component: VersionsComponent },
       { path: 'features', component: FeaturesComponent },
+      { path: '', redirectTo: '/', pathMatch: 'full' },
     ]
   }
 ];

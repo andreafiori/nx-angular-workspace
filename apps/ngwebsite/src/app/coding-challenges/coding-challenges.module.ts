@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap';
 
@@ -22,7 +21,6 @@ import { EmployeeService } from './department-team/employee.service';
     DepartmentMemberComponent,
   ],
   imports: [
-    BrowserModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

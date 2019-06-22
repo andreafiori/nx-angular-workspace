@@ -9,6 +9,7 @@ const routes: Routes = [
     children: [
       { path: 'two-sums', component: TwoSumsComponent },
       { path: 'department-team', component: DepartmentTeamComponent },
+      { path: '', redirectTo: '/', pathMatch: 'full' },
     ]
   }
 ];

@@ -8,7 +8,7 @@ import { Employee } from '../../../shared/models/department/employee';
 })
 export class DepartmentListComponent implements OnInit {
 
-  @Input() employees: Employee;
+  @Input() employees: Employee[];
 
   constructor() { }
 

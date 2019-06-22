@@ -9,6 +9,8 @@ import { TodoOneComponent } from './todo-one/todo-one.component';
 import { StudentsOneComponent } from './students-one/students-one.component';
 import { StudentsTwoComponent } from './students-two/students-two.component';
 import { TodoFormComponent } from './todo-one/todo-form/todo-form.component';
+import { ReactiveTimeComponent } from './reactive-time/reactive-time.component';
+
 import { TodoService } from './shared/todo-service.service';
 
 const routes: Routes = [
@@ -18,6 +20,7 @@ const routes: Routes = [
       { path: 'students-one', component: StudentsOneComponent },
       { path: 'students-two', component: StudentsTwoComponent },
       { path: 'todo-one', component: TodoOneComponent },
+      { path: 'minutes-seconds', component: ReactiveTimeComponent },
     ]
   },
 ];
@@ -26,6 +29,7 @@ const routes: Routes = [
   declarations: [
     StudentsOneComponent,
     StudentsTwoComponent,
+    ReactiveTimeComponent,
     TodoListComponent,
     TodoListItemComponent,
     TodoOneComponent,

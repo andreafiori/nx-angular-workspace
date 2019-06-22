@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'component-interactions', loadChildren: () => ComponentInteractionsModule },
   { path: 'form-validation', loadChildren: () => FormSamplesModule },
   { path: 'unique-id-modal', loadChildren: () => UniqueIdModalModule },
+  { path: 'coding-challenges', loadChildren: () => CodingChallengesModule },
   { path: 'seo-tools', loadChildren: () => SeoToolsModule },
   { path: '**', component: PageNotFoundComponent, pathMatch: 'full' },
 ];

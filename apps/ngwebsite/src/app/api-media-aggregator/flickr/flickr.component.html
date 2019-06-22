@@ -1,7 +1,7 @@
 <div *ngIf="!apiErrorFirstCheck; else apiErrorMessage">
   <h3><i class="fa fa-flickr"></i> Flickr Search Images</h3>
 
-  <p class="lead">Search images in the <strong>Flickr</strong> archive using their powerful <a href="https://www.flickr.com/services/api/" target="_blank" title="Go to the Flickr API documentation [open page in another window]">API service</a></p>
+  <p class="lead">Search images in the <strong>Flickr</strong> archive using their powerful <a href="https://www.flickr.com/services/api/" target="_blank" rel="noopener noreferrer" title="Go to the Flickr API documentation [open page in another window]">API service</a></p>
 
   <form class="form-inline mb-4" [formGroup]="formSearch" (ngSubmit)="onSubmit(formSearch.value)">
     <div class="form-group row"

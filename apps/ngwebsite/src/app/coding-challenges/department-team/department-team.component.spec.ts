@@ -1,4 +1,6 @@
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { DepartmentTeamComponent } from './department-team.component';
 
@@ -8,7 +10,9 @@ describe('DepartmentTeamComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DepartmentTeamComponent ]
+      declarations: [ DepartmentTeamComponent ],
+      providers: [BsModalService],
+      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

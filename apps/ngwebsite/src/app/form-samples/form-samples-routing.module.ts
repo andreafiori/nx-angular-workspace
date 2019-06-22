@@ -7,10 +7,8 @@ const routes: Routes = [
   {
     path: 'form-samples',
     children: [
-      {
-        path: 'validation',
-        component: FormSampleHomeComponent
-      }
+      { path: 'validation', component: FormSampleHomeComponent },
+      { path: '', redirectTo: '/', pathMatch: 'full' },
     ]
   }
 ];

@@ -1,20 +1,14 @@
 # Multiple Angular and React Projects
 
-This workspace was generated using <a href="https://nx.dev" target="_blank">Nx</a>.
+This workspace was generated using <a href="https://nx.dev" target="_blank" rel="noopener noreferrer">Nx</a>.
 
-You can use <a href="https://angularconsole.com/" target="_blank">Angular Console</a> to serve an application, run tests, lint, build and manage all the applications features.
+You can use <a href="https://angularconsole.com/" target="_blank" rel="noopener noreferrer">Angular Console</a> to serve an application, run tests, lint, build and manage all the applications features.
 
 ## Applications
 
 Applications list with their related name for the CLI:
 
 - NG Website (ngwebsite)
-- Two Sums (two-sums)
-- SEO tools (seo-tools)
-- Form validations examples (form-validation)
-- Unique IDs in a modal window (uniqueid-modal)
-- Angular Components interactions (components-interactions)
-- Api and Media aggregator (api-media-aggregator)
 - Packagist PHP API made with ReactJS (packagist-api)
 
 ## Generate a new application

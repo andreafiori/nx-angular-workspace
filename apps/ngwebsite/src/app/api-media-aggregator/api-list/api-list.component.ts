@@ -3,11 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Api, ApiList } from '../../shared/models/api-list.model';
 import { Category, Company, Platforms } from '../../shared/models/platforms.model';
 
-interface FilterFormValue {
-  category: string;
-  company: string;
-}
-
 @Component({
   selector: 'api-list',
   templateUrl: './api-list.component.html',
@@ -61,10 +56,10 @@ export class ApiListComponent implements OnInit {
   }
 
   private watchFormChanges() {
-    this.filterForm.valueChanges.subscribe((value: FilterFormValue) => this.filterApis(value));
+    this.filterForm.valueChanges.subscribe((value: ApiListFilterForm) => this.filterApis(value));
   }
 
-  private filterApis(value: FilterFormValue) {
+  private filterApis(value: ApiListFilterForm) {
     let filteredStudents: Array<Api> = this.apis;
     if (value.category) {
       filteredStudents = filteredStudents.filter((api: Api) => api.slug === value.category);

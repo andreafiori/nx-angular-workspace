@@ -23,7 +23,7 @@
       <div class="col-sm-12 col-md-12 col-lg-4 mb-4 p-2" *ngFor="let channel of api.channels | channelFilter: { company: companyOptionValue } ">
         <div class="border p-2">
           <h4 class="mb-2">
-            <a [href]="channel.url | safeUrl" target="_blank" [title]="channel.name">{{ channel.name }}</a>
+            <a [href]="channel.url | safeUrl" target="_blank" rel="noopener noreferrer" [title]="channel.name">{{ channel.name }}</a>
           </h4>
           <div class="mb-2">
             {{ channel.description }}
@@ -32,7 +32,7 @@
             <i class="fa fa-folder-open"></i> {{ api.category }}
           </div>
           <div class="mb-2">
-            By: <a [href]="channel.company.url | safeUrl" target="_blank" [title]="channel.name">{{ channel.company.name }}</a>
+            By: <a [href]="channel.company.url | safeUrl" target="_blank" rel="noopener noreferrer" [title]="channel.name">{{ channel.company.name }}</a>
           </div>
           <div>
             <a [href]="channel.url | safeUrl" [title]="'Read more about the ' +  channel.company.name + ' API'"

@@ -8,9 +8,13 @@ import { LoadingSpinner } from './loading-spinner';
 
 import './app.scss';
 
+interface Package {
+  results: any;
+}
+
 class PackagistState {
   pack?: string;
-  items: null|any;
+  items: Package;
   loading: boolean;
   error: null;
 }

@@ -16,22 +16,11 @@ const routes: Routes = [
   {
     path: 'seo-tools',
     children: [
-      {
-        path: 'title-validator',
-        component: TitleValidatorComponent,
-      },
-      {
-        path: 'keywords-extractor',
-        component: KeywordsExtractorComponent,
-      },
-      {
-        path: 'description-validator',
-        component: DescriptionValidatorComponent
-      },
-      {
-        path: 'checklist',
-        component: ChecklistComponent
-      },
+      { path: 'title-validator', component: TitleValidatorComponent },
+      { path: 'keywords-extractor', component: KeywordsExtractorComponent },
+      { path: 'description-validator', component: DescriptionValidatorComponent },
+      { path: 'checklist', component: ChecklistComponent },
+      { path: '', redirectTo: '/', pathMatch: 'full' },
     ]
   },
 ];
