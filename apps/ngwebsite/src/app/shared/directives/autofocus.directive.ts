@@ -9,7 +9,7 @@ export class AutofocusDirective implements OnInit {
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
-    let me = this;
+    const me = this;
     setTimeout(() => {
       if (me.autofocus !== false) {
         me.elementRef.nativeElement.focus();

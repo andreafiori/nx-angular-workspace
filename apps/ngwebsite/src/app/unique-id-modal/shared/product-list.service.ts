@@ -22,8 +22,8 @@ export class ProductListService {
 	}
 
 	getProductsList(): any[] {
-		let myList = [];
-		for (let i : number = 1; i <= 9; i++) {
+		const myList = [];
+		for (let i = 1; i <= 9; i++) {
 			myList.push(
 				{
 					id: "00" + i,

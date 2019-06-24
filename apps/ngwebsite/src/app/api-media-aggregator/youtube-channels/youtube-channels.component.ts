@@ -55,11 +55,9 @@ export class YoutubeChannelsComponent implements OnInit {
       self.channelId = params.get('id');
 
       // Check if the ID is inside the list before calling the service
-      if (self.service.apiKey === '') {
-        self.apiError = 'Empty API key';
-      } else if ( !self.service.isValidChannelId(self.channelId) ) {
+      if (self.channelId && !self.service.isValidChannelId(self.channelId) ) {
         self.apiError = 'Unvalid YouTube Channel ID. The selected channel ID is not on the list or it was impossibile to recover the related videos.';
-      } else {
+      } else if (self.channelId) {
         // TODO: check API key
         this.service.searchVideosByChannelId(self.channelId)
           .subscribe(

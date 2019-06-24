@@ -19,6 +19,11 @@
       </div>
     </div>
 
+    <div *ngIf="!channelId" class="alert alert-info">
+      <h3 class="alert-heading">Select a Video Channel</h3>
+      <div>Select a YouTube channel to show the latest videos.</div>
+    </div>
+
     <div *ngIf="apiError" class="alert alert-danger">
       <h3 class="alert-heading">Error occurred</h3>
       <div>{{ apiError }}</div>

@@ -36,12 +36,12 @@ export class TodoListComponent implements OnInit {
   }
 
   getOpenItems() {
-    return this.todos.pipe( map(items => items.filter(item => item.isArchive == false) ));
+    return this.todos.pipe( map(items => items.filter(item => item.isArchive === false) ));
   }
 
   getArchiveItems() {
     return this.todos.pipe(map(items =>
-      items.filter(item => item.isArchive == true)
+      items.filter(item => item.isArchive === true)
     ));
   }
 

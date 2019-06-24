@@ -47,11 +47,11 @@ export class ProductAddComponent implements OnInit {
 	 * Get available product IDs base on a ProductAdd object
 	 */
 	getAvailableProductIds(product : ProductAdd) : string[] {
-		let usedIds = this._productsToAdd.map( p => p.productId );
+		const usedIds = this._productsToAdd.map( p => p.productId );
 		return this.availableIds.filter( id => id === product.productId || usedIds.indexOf(id) === -1 );
 	}
 
-	public getCategories() : any[] {
+	getCategories() : any[] {
 		return this.defaultCategories;
 	}
 
@@ -71,7 +71,7 @@ export class ProductAddComponent implements OnInit {
    * @returns ProductAdd
    */
 	addNewRow(): ProductAdd {
-		let newProduct : ProductAdd = new ProductAdd();
+		const newProduct : ProductAdd = new ProductAdd();
 		newProduct.uniqueId = this.uniqueIdSequence++;
 		this._productsToAdd.push(newProduct);
 		return newProduct;

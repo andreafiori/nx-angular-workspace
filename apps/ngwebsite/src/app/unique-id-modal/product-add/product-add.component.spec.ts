@@ -40,7 +40,7 @@ describe('ProductAddComponent', () => {
 	});
 
 	it('should create', async(() => {
-		const fixture = TestBed.createComponent(ProductAddComponent);
+		fixture = TestBed.createComponent(ProductAddComponent);
 		const app = fixture.debugElement.componentInstance;
 		expect(app).toBeTruthy();
 	}));
@@ -73,11 +73,11 @@ describe('ProductAddComponent', () => {
 	});
 
 	it('should test deleteRow to be with no rows', () => {
-		expect(component.deleteRow(0, false).length == 0).toBeTruthy();
+		expect(component.deleteRow(0, false).length === 0).toBeTruthy();
 	});
 
 	it('should test deleteRow to be with no rows as last', () => {
-		expect(component.deleteRow(0, true).length == 0).toBeFalsy();
+		expect(component.deleteRow(0, true).length === 0).toBeFalsy();
 	});
 
 	// TODO: fix TypeError: Cannot read property 'hide' of undefined

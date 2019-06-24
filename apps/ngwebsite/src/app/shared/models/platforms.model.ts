@@ -10,11 +10,11 @@ export interface Category {
   slug: string;
 }
 
-export interface PlatformType<Company> {
+export interface PlatformType<> {
   [key: string]: Company;
 }
 
-export const Platforms: PlatformType<Company> = {
+export const Platforms: PlatformType = {
   google: {
     name: 'Google',
     slug: 'google',

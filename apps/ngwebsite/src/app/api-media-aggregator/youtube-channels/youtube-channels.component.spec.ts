@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { YoutubeChannelsComponent } from './youtube-channels.component';
+import { ModalModule } from 'ngx-bootstrap';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 describe('YoutubeChannelsComponent', () => {
   let component: YoutubeChannelsComponent;
@@ -8,7 +11,15 @@ describe('YoutubeChannelsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ YoutubeChannelsComponent ]
+      declarations: [ YoutubeChannelsComponent ],
+      imports: [
+        RouterTestingModule,
+        ModalModule.forRoot(),
+        HttpClientTestingModule
+      ],
+      providers: [
+        BsModalService
+      ]
     })
     .compileComponents();
   }));
