@@ -28,6 +28,12 @@
     },
     "registration-login-sample-e2e": {
       "tags": []
+    },
+    "crud-hooks": {
+      "tags": []
+    },
+    "crud-hooks-e2e": {
+      "tags": []
     }
   }
 }
