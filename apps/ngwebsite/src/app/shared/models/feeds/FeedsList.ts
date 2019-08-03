@@ -18,6 +18,12 @@ export class FeedsList {
           slug: 'angular-in-depth',
           url: 'https://blog.angularindepth.com/feed'
         },
+        {
+          label: 'Angular University',
+          description: 'Latest articles on Angular University',
+          slug: 'angular-university',
+          url: 'https://blog.angular-university.io/rss/'
+        },
       ]
     },
     {

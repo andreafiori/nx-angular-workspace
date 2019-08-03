@@ -8,7 +8,7 @@
       "url": "http://localhost:4200/#",
       "webRoot": "${workspaceFolder}/apps/ngwebsite",
       "runtimeArgs": [
-        "--incognito"
+        "--disable-web-security"
       ],
     },
     {
@@ -16,14 +16,21 @@
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}/apps/packagist-api"
+      "webRoot": "${workspaceFolder}/apps/packagist-api",
+      "runtimeArgs": [
+        
+      ],
     },
     {
       "name": "Launch RegLoginSample Chrome",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}/apps/registration-login-sample"
+      "webRoot": "${workspaceFolder}/apps/registration-login-sample",
+      "runtimeArgs": [
+        "--incognito",
+        "--disable-web-security"
+      ],
     },
   ]
 }

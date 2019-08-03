@@ -6,6 +6,8 @@ export const breadcrumbMap: Array<BreadcrumbSet> = [
   { path: 'pages/ng/versions', label: 'Version' },
   { path: 'pages/ng/features', label: 'Features' },
   { path: 'api-media-aggregator', label: 'API & Media Aggregator' },
+  { path: 'api-media-aggregator/news', label: 'News' },
+  { path: 'api-media-aggregator/news/frontend', label: 'Frontend' },
   { path: 'api-media-aggregator/list', label: 'List' },
   { path: 'api-media-aggregator/flickr', label: 'Flikr' },
   { path: 'api-media-aggregator/youtube', label: 'YouTube' },

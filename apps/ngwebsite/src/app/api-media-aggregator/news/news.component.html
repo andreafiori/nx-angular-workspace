@@ -1,43 +1,47 @@
 <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-8">
+	<div class="col-sm-12 col-md-8 col-lg-8">
 
-        <div *ngIf="error" class="alert alert-danger" #hasError>
-            <h3 class="alert-heading">Error occurred!</h3>
-            <div>Use the debugger on VSCode to bypass the CORS.</div>
-        </div>
+		<div *ngIf="error" class="alert alert-danger" #hasError>
+			<h3 class="alert-heading">Error occurred!</h3>
+			<div>Use the debugger on VSCode to bypass the CORS.</div>
+		</div>
 
-        <h3 *ngIf="!currentFeed && !error">
-            Frontend Development News
-        </h3>
+		<div *ngIf="!currentFeed && !error">
+			<h3>Frontend Development News</h3>
+			<p class="lead">Select a website to read the latest news</p>
+		</div>
+		
 
-        <div *ngIf="currentFeed">
-            <h3>{{ currentFeed.title }}</h3>
-            <div>{{ currentFeed.description }}</div>
-            <div>
-                <ul>
-                    <li *ngFor="let feed of currentFeed.items">
-                        <a [href]="feed.link" target="_blank" rel="noopener noreferrer" title="">{{ feed.title }}</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- <pre>{{ currentFeed | json }}</pre> -->
-        </div>
-        
-    </div>
-    <div class="col-sm-12 col-md-4 col-lg-4">
+		<div *ngIf="currentFeed">
+			<h3>{{ currentFeed.title }}</h3>
+			<p class="lead">{{ currentFeed.description }}</p>
+			<div>
+				<ul>
+					<li *ngFor="let feed of currentFeed.items">
+						<a [href]="feed.link" target="_blank" rel="noopener noreferrer" title="">{{ feed.title }}</a>
+					</li>
+				</ul>
+			</div>
+			<!-- <pre>{{ currentFeed | json }}</pre> -->
+		</div>
 
-        <div *ngIf="feeds">
-            <div *ngFor="let feed of feeds">
-                <h3>{{ feed.title }}</h3>
-                <div>
-                    <ul>
-                        <li *ngFor="let rss of feed.feeds">
-                            <a (click)="resetCurrentFeed()" [routerLink]="['/news/' + feed.group + '/' + rss.slug]" title="">{{ rss.label }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+	</div>
+	<div class="col-sm-12 col-md-4 col-lg-4">
 
-    </div>
+		<div *ngIf="feeds">
+			<div *ngFor="let feed of feeds">
+				<h3>{{ feed.title }}</h3>
+				<div>
+					<ul>
+						<li *ngFor="let rss of feed.feeds">
+							<a (click)="resetCurrentFeed()"
+								[routerLink]="['/api-media-aggregator/news/' + feed.group + '/' + rss.slug]"
+								title="">{{ rss.label }}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>

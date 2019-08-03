@@ -6,12 +6,6 @@ import UserTable from './tables/UserTable';
 
 import './app.scss';
 
-interface User {
-	id: number;
-	name: string;
-	username: string;
-}
-
 const App = () => {
 
 	const usersData = [
@@ -53,7 +47,7 @@ const App = () => {
 
 	return (
 		<div className="container">
-			<h1 className="text-center">CRUD App with Hooks</h1>
+			<h1 className="text-center mt-4 mb-4">CRUD App with Hooks</h1>
 			<div className="row">
 				<div className="col-sm-12 col-md-6 col-lg-6">
 					{editing ? (

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
 
 import { RssParserService } from './rss-parser.service';
@@ -24,37 +24,26 @@ export class NewsComponent implements OnInit {
   group: string;
   slug: string;
 
-  constructor(private route: ActivatedRoute,
-    private http: HttpClient,
-    private rssParser: RssParserService) {
-
-  }
+  constructor(
+    private route: ActivatedRoute, 
+    private http: HttpClient, 
+    private rssParser: RssParserService
+  ) { }
 
   ngOnInit() {
 
-    // const parser = this.rssParser;
-    this.http.get('/angular-in-depth', { responseType: 'text' })
-      .subscribe(response => {
-
-        // const xmlDoc = parser.parseRssXmlString(response);
-
-        return response;
-      },
-        error => {
-          console.log(error);
-        }
-      );
-
+    // Get feeds list and store them in a variable
     const feedsList = new FeedsList();
-    this.feeds = feedsList.feeds; // Assign generic list
+    this.feeds = feedsList.feeds;
 
     // Search category and related feeds
-    this.route.paramMap.subscribe(paramMap => {
+    this.route.paramMap.subscribe((paramMap: ParamMap)=> {
 
-      // GET paramaters
+      // GET paramaters can also be retrieved in this way:
       // this.group = this.route.snapshot.paramMap.get('group');
       // this.slug = this.route.snapshot.paramMap.get('slug');
 
+      // GET paramaters using the ParamMap object
       this.group = paramMap.get('group');
       this.slug = paramMap.get('slug');
 
@@ -68,22 +57,19 @@ export class NewsComponent implements OnInit {
 
             for (let j = 0; j < feeds.length; j++) {
               if (feeds[j]['slug'] === this.slug) {
-                // REST call feed
+                // REST call to get RSS feed document
                 const rssParser = this.rssParser;
                 const self = this;
                 this.http.get(feeds[j]['url'], { responseType: 'text' })
                   .subscribe(response => {
-
                     self.currentFeed = rssParser.parseRssXmlString(response);
-
                     return response;
                   },
-                    error => {
-                      console.log(error);
-                      self.error = error;
-                    }
-                  );
-
+                  error => {
+                    console.log(error);
+                    self.error = error;
+                  }
+                );
               }
             }
 
