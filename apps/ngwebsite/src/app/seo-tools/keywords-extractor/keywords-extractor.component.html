@@ -6,19 +6,20 @@
 
   <div class="form-group row" [ngClass]="{'has-error':!keywordsExtractorForm.controls['description'].valid && keywordsExtractorForm.controls['description'].touched}">
     <div class="col-sm-12">
-      <textarea class="form-control" rows="8" placeholder="Description..." [formControl]="keywordsExtractorForm.controls['description']"></textarea>
+      <textarea data-cy="description" class="form-control" rows="8" placeholder="Description..." [formControl]="keywordsExtractorForm.controls['description']"></textarea>
       <div *ngIf="keywordsExtractorForm.controls['description'].hasError('required') && keywordsExtractorForm.controls['description'].touched" class="alert alert-danger">Type a (long) text string or description from your page.</div>
     </div>
   </div>
 
   <div class="form-group row">
       <div class="col-sm-12 text-center">
-          <button type="submit" class="btn btn-lg btn-primary" [disabled]="!keywordsExtractorForm.valid">Extract</button>
+          <button data-cy="submit" type="submit" class="btn btn-lg btn-primary" [disabled]="!keywordsExtractorForm.valid">Extract</button>
       </div>
     </div>
 
   <div *ngIf="extractionResult">
-    <span *ngFor="let keyword of extractionResult">{{ keyword }}, </span>
+    <h3>Keywords extracted:</h3>
+    <span *ngFor="let keyword of extractionResult">{{ keyword }}</span>
   </div>
 
 </form>

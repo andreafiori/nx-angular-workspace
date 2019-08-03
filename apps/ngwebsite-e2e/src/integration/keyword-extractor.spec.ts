@@ -1,11 +1,15 @@
 import { getContentGreeting } from '../support/app.po';
 
-describe('should test the title tag validator', () => {
-  beforeEach(() => cy.visit('/keywords-extractor'));
+describe('should test the meta keywords tag validator', () => {
+  beforeEach(() => cy.visit('#/seo-tools/keywords-extractor'))
 
   it('should display welcome message', () => {
-    getContentGreeting().contains('Keywords Extractor');
+    getContentGreeting().contains('Keywords Extractor')
   });
 
-  // TODO fill the form and extract \ test result, check navbar active link
+  it('should fill the form and submit', () => {
+    cy.get('[data-cy=description]').type('test description of a javascript angular nx workspace cypress.io e2e browser automation')
+    cy.get('[data-cy=submit]').click()
+  });
+
 });

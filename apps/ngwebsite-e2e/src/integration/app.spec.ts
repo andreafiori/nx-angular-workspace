@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('Hello Nx', () => {
+describe('HomePage', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display the home page', () => {

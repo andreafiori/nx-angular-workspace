@@ -16,7 +16,7 @@
 <form action="" method="POST">
   <div class="row">
     <div class="col-sm-2">
-      <button (click)="initialize()" class="btn btn-sm btn-primary">
+      <button (click)="initialize()" data-cy="reload" class="btn btn-sm btn-primary">
         Reload Array
       </button>
     </div>
@@ -79,6 +79,7 @@
           class="form-control"
           [formControl]="optionsForm.controls['targeNumber']"
           id="targeNumber"
+          data-cy="targeNumber"
           title="Insert the target number"
           required="required"
           #trgt
@@ -110,6 +111,7 @@
           maxlength="2"
           max="99"
           id="numelements"
+          data-cy="numelements"
           [formControl]="optionsForm.controls['numelements']"
           class="form-control"
           title="Insert the number of elements"
@@ -132,7 +134,8 @@
       <!-- Submit -->
       <button
         type="submit"
-        id="two-sums-submit"
+        id="submit"
+        data-cy="submit"
         [disabled]="!optionsForm.valid"
         class="btn btn-primary"
       >

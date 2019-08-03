@@ -1,7 +1,7 @@
 import { getGreeting } from '../support/app.po';
 
-describe('Hello Nx', () => {
-  beforeEach(() => cy.visit('/'));
+describe('FormValidation', () => {
+  beforeEach(() => cy.visit('#/form-samples/validation'));
 
   it('should display form welcome messages', () => {
     getGreeting().contains('Form validation on submit');

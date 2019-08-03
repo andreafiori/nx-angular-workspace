@@ -4,7 +4,7 @@
   
   <p class="lead">Selecting an <strong>unique id</strong> with other properties in a modal window with Angular</p>
   
-  <button class="btn btn-primary" (click)="addProdsModal.show()" [disabled]="!canAddProducts()">Open Modal</button>
+  <button data-cy="openmodal" class="btn btn-primary" (click)="addProdsModal.show()" [disabled]="!canAddProducts()">Open Modal</button>
 </div>
 
 <div class="modal fade" bsModal #addProdsModal="bs-modal" [config]="{backdrop: 'static'}" (onHidden)="addProductsModal = false" (onShow)="addProductsModal = true" tabindex="-1" role="dialog">
