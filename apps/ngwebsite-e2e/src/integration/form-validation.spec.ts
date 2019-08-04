@@ -1,14 +1,12 @@
-import { getGreeting } from '../support/app.po';
-
 describe('FormValidation', () => {
   beforeEach(() => cy.visit('#/form-samples/validation'));
 
   it('should display form welcome messages', () => {
-    getGreeting().contains('Form validation on submit');
-    getGreeting().contains('Template Driven Form');
-    getGreeting().contains('Data Driven (Reactive) Form');
-    getGreeting().contains('Form with Validations');
-    getGreeting().contains('Login Form');
+    cy.get('[data-cy=formTitle]').contains('Form validation on submit');
+    cy.get('[data-cy=formTitle]').contains('Template Driven Form');
+    cy.get('[data-cy=formTitle]').contains('Data Driven (Reactive) Form');
+    cy.get('[data-cy=formTitle]').contains('Form with Validations');
+    cy.get('[data-cy=formTitle]').contains('Login Form');
   });
 
   it('should fill fields on first form', () => {

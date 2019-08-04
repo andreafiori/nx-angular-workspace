@@ -4,6 +4,10 @@ describe('HomePage', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
-    getGreeting().contains('Welcome to registration-login-sample!');
+    cy.get('h2').contains('Login');
+    cy.get('[data-cy=registerLink]').click(); // Switch to register
+    cy.get('h2').contains('Register');
   });
+
+  // TODO: create user, login, navigate to backend area
 });

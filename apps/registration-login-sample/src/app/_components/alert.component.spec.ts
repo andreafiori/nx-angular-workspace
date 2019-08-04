@@ -1,6 +1,8 @@
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AlertComponent } from './alert.component';
+import { AlertService } from '../_services';
 
 describe('AlertComponent', () => {
   let component: AlertComponent;
@@ -8,7 +10,19 @@ describe('AlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AlertComponent ]
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AlertComponent
+      ],
+      providers: [
+        AlertService
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA,
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
     .compileComponents();
   }));

@@ -1,5 +1,5 @@
 <div *ngIf="!authenticated">
-	<h3>Login Form</h3>
+	<h3 data-cy="formTitle">Login Form</h3>
 	<form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
 		<div class="form-group" [ngClass]="{'has-error':!loginForm.controls['email'].valid && loginForm.controls['email'].touched}">
 		<label>Email:</label>

@@ -5,35 +5,35 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormValidationComponent } from './form-validation.component';
 
 describe('FormValidationComponent', () => {
-	let component: FormValidationComponent;
-	let fixture: ComponentFixture<FormValidationComponent>;
+  let component: FormValidationComponent;
+  let fixture: ComponentFixture<FormValidationComponent>;
 
-	beforeEach(async(() => {
-		TestBed.configureTestingModule({
-			declarations: [FormValidationComponent],
-			providers: [
-				FormBuilder
-			],
-			imports: [
-				HttpClientModule,
-				FormsModule,
-				ReactiveFormsModule,
-			],
-		})
-			.compileComponents();
-	}));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [FormValidationComponent],
+      providers: [
+        FormBuilder
+      ],
+      imports: [
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+      ],
+    })
+      .compileComponents();
+  }));
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(FormValidationComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FormValidationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-	it('should test submitForm', () => {
-		expect(component.submitForm({})).toBeUndefined();
-	});
+  it('should test submitForm', () => {
+    expect(component.submitForm({})).toBeUndefined();
+  });
 });
