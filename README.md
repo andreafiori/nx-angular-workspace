@@ -42,6 +42,13 @@ TSLint is an extensible static analysis tool that checks TypeScript code for rea
 
 Run `ng lint <myapp>` to run TSLint on a project.
 
+## Update Angular Version and Workspace
+
+    ng update --all --next --force
+
+- [Update Angular version](https://update.angular.io/)
+- [Update Nx Workspace](https://nx.dev/angular/guides/update/)
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
