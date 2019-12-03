@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 
-export class PackageList extends Component<{}, {}> {
+export class PackageList extends Component {
 
   packages: {
     results: any;

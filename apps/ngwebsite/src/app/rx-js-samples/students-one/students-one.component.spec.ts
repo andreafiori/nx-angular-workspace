@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { StudentsOneComponent } from './students-one.component';
 
@@ -8,7 +10,11 @@ describe('StudentsOneComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentsOneComponent ]
+      declarations: [ StudentsOneComponent ],
+      imports: [
+        CommonModule,
+        ReactiveFormsModule,
+      ]
     })
     .compileComponents();
   }));

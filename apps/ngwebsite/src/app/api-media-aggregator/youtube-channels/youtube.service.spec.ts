@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { YoutubeService } from './youtube.service';
 
@@ -8,7 +9,10 @@ describe('YoutubeService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [YoutubeService]
+      providers: [YoutubeService],
+      imports: [
+        HttpClientTestingModule,
+      ],
     });
 
     service = TestBed.get(YoutubeService);
