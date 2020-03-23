@@ -1,36 +1,26 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Launch NGWebsite Chrome",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}/apps/ngwebsite",
-      "runtimeArgs": [
-        "--disable-web-security"
-      ],
-    },
-    {
-      "name": "Launch Packagist Chrome",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}/apps/packagist-api",
-      "runtimeArgs": [
-        
-      ],
-    },
-    {
-      "name": "Launch RegLoginSample Chrome",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:4200/#",
-      "webRoot": "${workspaceFolder}/apps/registration-login-sample",
-      "runtimeArgs": [
-        "--incognito",
-        "--disable-web-security"
-      ],
-    },
-  ]
-}
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch NGWebsite Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:4200/#",
+        "webRoot": "${workspaceFolder}/apps/ngwebsite",
+        "runtimeArgs": [
+          "--disable-web-security"
+        ],
+      },
+      {
+        "name": "Launch RegLoginSample Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:4200/#",
+        "webRoot": "${workspaceFolder}/apps/registration-login-sample",
+        "runtimeArgs": [
+          "--incognito",
+          "--disable-web-security"
+        ],
+      },
+    ]
+  }

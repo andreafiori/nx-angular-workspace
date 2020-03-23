@@ -1,8 +1,11 @@
 {
-  "npmScope": "nxprojects",
+  "npmScope": "nx-workspace",
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.json": "*",
     "tslint.json": "*",
     "nx.json": "*"
@@ -12,28 +15,15 @@
       "tags": []
     },
     "ngwebsite-e2e": {
-      "tags": []
-    },
-    "packagist-api": {
-      "tags": []
-    },
-    "packagist-api-e2e": {
-      "tags": []
-    },
-    "bootstrap-ui": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["ngwebsite"]
     },
     "registration-login-sample": {
       "tags": []
     },
     "registration-login-sample-e2e": {
-      "tags": []
-    },
-    "crud-hooks": {
-      "tags": []
-    },
-    "crud-hooks-e2e": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["registration-login-sample"]
     }
   }
 }

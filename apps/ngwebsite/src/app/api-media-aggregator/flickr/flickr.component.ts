@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FlickrService } from './flickr.service';
+import { ApiRecordset } from './photoset.model';
 
 @Component({
-  selector: 'nxprojects-flickr',
+  selector: 'nx-workspace-flickr',
   templateUrl: './flickr.component.html',
   styleUrls: ['./flickr.component.scss'],
 })
@@ -12,7 +13,7 @@ export class FlickrComponent implements OnInit {
   formSearch: FormGroup;
 
   requestSent = false;
-  apiResult: any;
+  apiResult: ApiRecordset;
   apiError: string;
   apiErrorFirstCheck: string;
 

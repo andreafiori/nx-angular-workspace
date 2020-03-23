@@ -1,18 +1,16 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "",
   "projects": {
     "ngwebsite": {
-      "root": "apps/ngwebsite/",
-      "sourceRoot": "apps/ngwebsite/src",
       "projectType": "application",
-      "prefix": "nxprojects",
       "schematics": {
-        "@nrwl/schematics:component": {
+        "@nrwl/angular:component": {
           "style": "scss"
         }
       },
+      "root": "apps/ngwebsite",
+      "sourceRoot": "apps/ngwebsite/src",
+      "prefix": "nx-workspace",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -22,13 +20,13 @@
             "main": "apps/ngwebsite/src/main.ts",
             "polyfills": "apps/ngwebsite/src/polyfills.ts",
             "tsConfig": "apps/ngwebsite/tsconfig.app.json",
+            "aot": true,
             "assets": [
               "apps/ngwebsite/src/favicon.ico",
               "apps/ngwebsite/src/assets"
             ],
             "styles": ["apps/ngwebsite/src/styles.scss"],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -43,7 +41,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -52,6 +49,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -81,14 +83,15 @@
               "apps/ngwebsite/tsconfig.app.json",
               "apps/ngwebsite/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/ngwebsite/**"]
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/ngwebsite/jest.config.js",
             "tsConfig": "apps/ngwebsite/tsconfig.spec.json",
+            "passWithNoTests": true,
             "setupFile": "apps/ngwebsite/src/test-setup.ts"
           }
         }
@@ -96,11 +99,11 @@
     },
     "ngwebsite-e2e": {
       "root": "apps/ngwebsite-e2e",
+      "sourceRoot": "apps/ngwebsite-e2e/src",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
-          "builder": "@nrwl/builders:cypress",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/ngwebsite-e2e/cypress.json",
             "tsConfig": "apps/ngwebsite-e2e/tsconfig.e2e.json",
@@ -115,160 +118,22 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/ngwebsite-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": ["apps/ngwebsite-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/ngwebsite-e2e/**"]
           }
-        }
-      }
-    },
-    "packagist-api": {
-      "root": "apps/packagist-api/",
-      "sourceRoot": "apps/packagist-api/src",
-      "projectType": "application",
-      "prefix": "nxprojects",
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "style": "scss"
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@nrwl/builders:web-build",
-          "options": {
-            "outputPath": "dist/apps/packagist-api",
-            "index": "apps/packagist-api/src/index.html",
-            "main": "apps/packagist-api/src/main.tsx",
-            "polyfills": "apps/packagist-api/src/polyfills.ts",
-            "tsConfig": "apps/packagist-api/tsconfig.app.json",
-            "assets": [
-              "apps/packagist-api/src/favicon.ico",
-              "apps/packagist-api/src/assets"
-            ],
-            "styles": ["apps/packagist-api/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/packagist-api/src/environments/environment.ts",
-                  "with": "apps/packagist-api/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/builders:web-dev-server",
-          "options": {
-            "buildTarget": "packagist-api:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "packagist-api:build:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/packagist-api/tsconfig.app.json",
-              "apps/packagist-api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/builders:jest",
-          "options": {
-            "jestConfig": "apps/packagist-api/jest.config.js",
-            "tsConfig": "apps/packagist-api/tsconfig.spec.json"
-          }
-        }
-      }
-    },
-    "packagist-api-e2e": {
-      "root": "apps/packagist-api-e2e",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/builders:cypress",
-          "options": {
-            "cypressConfig": "apps/packagist-api-e2e/cypress.json",
-            "tsConfig": "apps/packagist-api-e2e/tsconfig.e2e.json",
-            "devServerTarget": "packagist-api:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "packagist-api:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/packagist-api-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "bootstrap-ui": {
-      "root": "libs/bootstrap-ui",
-      "sourceRoot": "libs/bootstrap-ui/src",
-      "projectType": "library",
-      "prefix": "nxprojects",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/bootstrap-ui/tsconfig.lib.json",
-              "libs/bootstrap-ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/builders:jest",
-          "options": {
-            "jestConfig": "libs/bootstrap-ui/jest.config.js",
-            "tsConfig": "libs/bootstrap-ui/tsconfig.spec.json"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "styleext": "scss"
         }
       }
     },
     "registration-login-sample": {
-      "root": "apps/registration-login-sample/",
-      "sourceRoot": "apps/registration-login-sample/src",
       "projectType": "application",
-      "prefix": "nxprojects",
       "schematics": {
-        "@nrwl/schematics:component": {
+        "@nrwl/angular:component": {
           "style": "scss"
         }
       },
+      "root": "apps/registration-login-sample",
+      "sourceRoot": "apps/registration-login-sample/src",
+      "prefix": "nx-workspace",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -278,13 +143,13 @@
             "main": "apps/registration-login-sample/src/main.ts",
             "polyfills": "apps/registration-login-sample/src/polyfills.ts",
             "tsConfig": "apps/registration-login-sample/tsconfig.app.json",
+            "aot": true,
             "assets": [
               "apps/registration-login-sample/src/favicon.ico",
               "apps/registration-login-sample/src/assets"
             ],
             "styles": ["apps/registration-login-sample/src/styles.scss"],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -299,7 +164,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -308,6 +172,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -337,14 +206,18 @@
               "apps/registration-login-sample/tsconfig.app.json",
               "apps/registration-login-sample/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/registration-login-sample/**"
+            ]
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/registration-login-sample/jest.config.js",
             "tsConfig": "apps/registration-login-sample/tsconfig.spec.json",
+            "passWithNoTests": true,
             "setupFile": "apps/registration-login-sample/src/test-setup.ts"
           }
         }
@@ -352,11 +225,11 @@
     },
     "registration-login-sample-e2e": {
       "root": "apps/registration-login-sample-e2e",
+      "sourceRoot": "apps/registration-login-sample-e2e/src",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
-          "builder": "@nrwl/builders:cypress",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/registration-login-sample-e2e/cypress.json",
             "tsConfig": "apps/registration-login-sample-e2e/tsconfig.e2e.json",
@@ -371,134 +244,28 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/registration-login-sample-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "crud-hooks": {
-      "root": "apps/crud-hooks/",
-      "sourceRoot": "apps/crud-hooks/src",
-      "projectType": "application",
-      "prefix": "nxprojects",
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "style": "scss"
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@nrwl/builders:web-build",
-          "options": {
-            "outputPath": "dist/apps/crud-hooks",
-            "index": "apps/crud-hooks/src/index.html",
-            "main": "apps/crud-hooks/src/main.tsx",
-            "polyfills": "apps/crud-hooks/src/polyfills.ts",
-            "tsConfig": "apps/crud-hooks/tsconfig.app.json",
-            "assets": [
-              "apps/crud-hooks/src/favicon.ico",
-              "apps/crud-hooks/src/assets"
-            ],
-            "styles": ["apps/crud-hooks/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/crud-hooks/src/environments/environment.ts",
-                  "with": "apps/crud-hooks/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/builders:web-dev-server",
-          "options": {
-            "buildTarget": "crud-hooks:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "crud-hooks:build:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
             "tsConfig": [
-              "apps/crud-hooks/tsconfig.app.json",
-              "apps/crud-hooks/tsconfig.spec.json"
+              "apps/registration-login-sample-e2e/tsconfig.e2e.json"
             ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/builders:jest",
-          "options": {
-            "jestConfig": "apps/crud-hooks/jest.config.js",
-            "tsConfig": "apps/crud-hooks/tsconfig.spec.json"
-          }
-        }
-      }
-    },
-    "crud-hooks-e2e": {
-      "root": "apps/crud-hooks-e2e",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/builders:cypress",
-          "options": {
-            "cypressConfig": "apps/crud-hooks-e2e/cypress.json",
-            "tsConfig": "apps/crud-hooks-e2e/tsconfig.e2e.json",
-            "devServerTarget": "crud-hooks:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "crud-hooks:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "apps/crud-hooks-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/registration-login-sample-e2e/**"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "warnings": {
-      "typescriptMismatch": false,
-      "versionMismatch": false
-    },
-    "defaultCollection": "@nrwl/schematics"
+    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
-    "@nrwl/schematics:application": {
-      "style": "scss"
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "@nrwl/schematics:library": {
-      "style": "scss"
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
   },
   "defaultProject": "ngwebsite"

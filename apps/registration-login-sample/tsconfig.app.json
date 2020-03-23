@@ -1,9 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/registration-login-sample",
+    "outDir": "../../dist/out-tsc",
     "types": []
   },
-  "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
-  "include": ["**/*.ts", "**/*.d.ts"]
+  "files": ["src/main.ts", "src/polyfills.ts"]
 }
