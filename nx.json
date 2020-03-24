@@ -24,6 +24,13 @@
     "registration-login-sample-e2e": {
       "tags": [],
       "implicitDependencies": ["registration-login-sample"]
+    },
+    "tour-of-heroes": {
+      "tags": []
+    },
+    "tour-of-heroes-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tour-of-heroes"]
     }
   }
 }
