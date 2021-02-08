@@ -44,6 +44,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: true }),
     RxJsSamplesModule,
   ],
+  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { UniqueIdModalRoutingModule } from './unique-id-modal-routing.module';
 import { AutofocusDirective } from '../shared/directives/autofocus.directive';

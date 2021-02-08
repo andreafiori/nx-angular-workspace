@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { UniqueIdModalHomeComponent } from './unique-id-modal-home.component';
 import { ProductListService } from '../shared/product-list.service';
