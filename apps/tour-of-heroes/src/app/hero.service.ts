@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError as observableThrowError } from 'rxjs';
+import { Observable, throwError as observableThrowError, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { Hero } from './hero';
@@ -17,7 +17,7 @@ export class HeroService {
       .pipe(map(data => data), catchError(this.handleError));
   }
 
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number): Observable<Hero | undefined> {
     return this.getHeroes().pipe(
       map(heroes => heroes.find(hero => hero.id === id))
     );
@@ -62,6 +62,6 @@ export class HeroService {
 
   private handleError(res: HttpErrorResponse | any) {
     console.error(res.error || res.body.error);
-    return observableThrowError(res.error || 'Server error');
+    return throwError(() => new Error(res.error || 'Server error'));
   }
 }

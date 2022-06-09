@@ -4,7 +4,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 // array in local storage for registered users
-let users = JSON.parse(localStorage.getItem('users')) || [];
+const usersFromLocalstorage = localStorage.getItem('users');
+let users = (usersFromLocalstorage) ? JSON.parse(usersFromLocalstorage) : [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -87,7 +88,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     // helper functions
 
-    function ok(body?) {
+    function ok(body?: any) {
       return of(new HttpResponse({ status: 200, body }));
     }
 
@@ -95,7 +96,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return throwError({ status: 401, error: { message: 'Unauthorised' } });
     }
 
-    function error(message) {
+    function error(message: string) {
       return throwError({ error: { message } });
     }
 

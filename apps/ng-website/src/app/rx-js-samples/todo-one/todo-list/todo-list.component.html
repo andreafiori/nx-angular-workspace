@@ -1,0 +1,29 @@
+
+<div class="row">
+  <input type="text" class="form-control" placeholder="Search" name="search" [(ngModel)]="search" (ngModelChange)="onSearch()">
+</div>
+
+<div *ngIf="(getOpenItems() | async) as openItems">
+  <b>Open Items
+    <span class="badge badge-success badge-pill">{{ openItems.length }}</span>
+  </b>
+
+  <ul class="list-group">
+    <app-todo-list-item *ngFor="let todo of openItems" [todo]="todo"></app-todo-list-item>
+  </ul>
+</div>
+
+
+<div *ngIf="(getArchiveItems() | async) as archiveItems">
+  <b>Archive Items
+    <span class="badge badge-success badge-pill">{{archiveItems.length}}</span>
+  </b>
+  <ul class="list-group" *ngIf="(todos | async)">
+    <app-todo-list-item *ngFor="let todo of archiveItems" [todo]="todo"></app-todo-list-item>
+  </ul>
+</div>
+
+
+<div *ngIf="(todos | async) as todosList">
+  <small *ngIf="todosList.length <= 0"><i>No items yet.</i></small>
+</div>

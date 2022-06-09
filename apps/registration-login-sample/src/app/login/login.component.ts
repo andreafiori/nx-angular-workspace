@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
+        if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }
@@ -49,13 +49,14 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+            .subscribe({
+              next: () => {
+                this.router.navigate([this.returnUrl]);
+              },
+              error: (error) => {
+                this.alertService.error(error);
+                this.loading = false;
+              }
+            });
     }
 }

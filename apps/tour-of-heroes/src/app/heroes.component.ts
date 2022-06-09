@@ -10,7 +10,7 @@ import { HeroService } from './hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
-  selectedHero: Hero;
+  selectedHero: Hero | null;
   addingHero = false;
   error: any;
   showNgFor = false;
@@ -58,6 +58,8 @@ export class HeroesComponent implements OnInit {
   }
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
+    if (this.selectedHero?.id) {
+      this.router.navigate(['/detail', this.selectedHero.id]);
+    }
   }
 }

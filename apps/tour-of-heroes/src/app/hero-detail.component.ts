@@ -24,7 +24,11 @@ export class HeroDetailComponent implements OnInit {
       if (params['id'] !== undefined) {
         const id = +params['id'];
         this.navigated = true;
-        this.heroService.getHero(id).subscribe(hero => (this.hero = hero));
+        this.heroService.getHero(id).subscribe(hero => {
+          if (hero) {
+            this.hero = hero;
+          }
+        });
       } else {
         this.navigated = false;
         this.hero = new Hero();
@@ -39,7 +43,7 @@ export class HeroDetailComponent implements OnInit {
     }, error => (this.error = error)); // TODO: Display error message
   }
 
-  goBack(savedHero: Hero = null): void {
+  goBack(savedHero?: Hero): void {
     this.close.emit(savedHero);
     if (this.navigated) {
       window.history.back();

@@ -1,36 +1,48 @@
 {
-  "npmScope": "nx-workspace",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "nx-angular-bootstrap",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "cli": {
+    "packageManager": "npm"
+  },
   "implicitDependencies": {
-    "angular.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
-    "tsconfig.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
+    ".eslintrc.json": "*"
   },
-  "projects": {
-    "ngwebsite": {
-      "tags": []
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "ngwebsite-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ngwebsite"]
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "registration-login-sample": {
-      "tags": []
-    },
-    "registration-login-sample-e2e": {
-      "tags": [],
-      "implicitDependencies": ["registration-login-sample"]
-    },
-    "tour-of-heroes": {
-      "tags": []
-    },
-    "tour-of-heroes-e2e": {
-      "tags": [],
-      "implicitDependencies": ["tour-of-heroes"]
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   }
 }
