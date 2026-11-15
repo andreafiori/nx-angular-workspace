@@ -1,0 +1,19 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/" title="Home page">Home</a>
+    <a class="nav-item nav-link" routerLink="" (click)="logout()" title="User logout">Logout</a>
+  </div>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <app-alert></app-alert>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

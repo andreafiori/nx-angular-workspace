@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "ng-website": "apps/ng-website",
+    "ng-website-e2e": "apps/ng-website-e2e",
+    "registration-login-sample": "apps/registration-login-sample",
+    "registration-login-sample-e2e": "apps/registration-login-sample-e2e",
+    "tour-of-heroes": "apps/tour-of-heroes",
+    "tour-of-heroes-e2e": "apps/tour-of-heroes-e2e"
+  }
+}

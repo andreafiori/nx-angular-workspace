@@ -1,0 +1,23 @@
+<div *ngIf="!authenticated">
+	<h3 data-cy="formTitle">Login Form</h3>
+	<form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
+		<div class="form-group" [ngClass]="{'has-error':!loginForm.controls['email'].valid && loginForm.controls['email'].touched}">
+		<label>Email:</label>
+		<input class="form-control" type="text" id="loginFormEmail" placeholder="John@doe.com" formControlName="email">
+		<div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="alert alert-danger">You must add an email.</div>
+		</div>
+		<div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+		<label>Password:</label>
+		<input class="form-control" type="password" id="loginFormPassword" placeholder="Password" formControlName="password">
+		<div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">You must add a password.</div>
+		</div>
+		<div class="form-group">
+		<button type="submit" id="loginFormSubmit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+		</div>
+	</form>
+	</div>
+	<div class="text-center" *ngIf="authenticated">
+	<img src="{{ profile.picture }}" alt="" />
+	<h2>Welcome, {{ profile.email }}</h2>
+	<a routerLink="" (click)="logout()">Logout</a>
+</div>
